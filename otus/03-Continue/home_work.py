@@ -60,11 +60,20 @@ class Personel:
                     for _ in range(3):
                         new_data.append(random.choice(self.all_position))
                     self.final_lst.append(new_data)
-
-        print(len(self.final_lst), self.final_lst)
+        # print(len(self.final_lst), self.final_lst)
 
     def write_file(self):
-        pass
+        for lst in self.final_lst:
+            answer_str = ""
+            for numb, item in enumerate(lst):
+                if numb == 0:
+                    answer_str += f"{item:^35}"
+                elif numb == 1:
+                    answer_str += f"{item:^25}"
+                else:
+                    answer_str += f"{item:^15}"
+            with open("result_class.txt", "a", encoding='utf-8') as string:
+                string.write(f"{answer_str}\n")
 
     def run(self):
         self.extract_info()

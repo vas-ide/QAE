@@ -25,6 +25,6 @@ def home_work(file_name):
                     answer_str += f"{item:^25}"
                 else:
                     answer_str += f"{item:^15}"
-            with open("result.txt", "a", encoding='utf-8') as string:
+            with open("result_lite.txt", "a", encoding='utf-8') as string:
                 string.write(f"{answer_str}\n")
 home_work("data.csv")
