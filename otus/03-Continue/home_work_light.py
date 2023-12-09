@@ -5,7 +5,7 @@ import random
 def home_work(file_name):
     with open(file_name, 'r', encoding='1251') as file:
         all_chois = ["1", "0"]
-        with open("result.txt", "a", encoding='utf-8') as string:
+        with open("result_lite.txt", "a", encoding='utf-8') as string:
             string.write(f"{file.name:>50} - encoding {file.encoding}\n")
         for line in file:
             lst_line = line.split(",")
