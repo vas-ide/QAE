@@ -12,3 +12,7 @@ class Application:
     def test_smth(self):
         self.wd.get("https://otus.ru/")
         pass
+
+
+app = Application('chrome')
+app.test_smth()
