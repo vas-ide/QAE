@@ -1,0 +1,3 @@
+https://selenium-python.readthedocs.io/
+
+https://www.w3.org/TR/WD-css2-971104/selector.html
