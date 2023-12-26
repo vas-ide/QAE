@@ -14,31 +14,31 @@ def browser(request):
         driver = webdriver.Chrome()
     elif browser_param == "firefox":
         driver = webdriver.Firefox()
-    elif browser_param == "safari":
-        driver = webdriver.Safari()
+    elif browser_param == "edge":
+        driver = webdriver.Edge()
     else:
         raise Exception(f"{request.param} is not supported!")
 
-    driver.implicitly_wait(20)
+    driver.implicitly_wait(1)
     request.addfinalizer(driver.close)
     driver.get(request.config.getoption("--url"))
 
     return driver
 
 
-@pytest.fixture(params=["chrome", "safari", "firefox"])
+@pytest.fixture(params=["chrome", "edge", "firefox"])
 def parametrize_browser(request):
     browser_param = request.param
     if browser_param == "chrome":
         driver = webdriver.Chrome()
     elif browser_param == "firefox":
         driver = webdriver.Firefox()
-    elif browser_param == "safari":
-        driver = webdriver.Safari()
+    elif browser_param == "edge":
+        driver = webdriver.Edge()
     else:
         raise Exception(f"{request.param} is not supported!")
 
-    driver.implicitly_wait(20)
+    driver.implicitly_wait(2)
     request.addfinalizer(driver.quit)
     driver.get(request.config.getoption("--url"))
 
