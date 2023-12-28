@@ -1,31 +1,33 @@
-import requests
-
-from locators import MainLogo
+import time
+import os
+from selenium import webdriver
+from selenium.webdriver.edge.service import Service as Service_edge
+from selenium.webdriver.chrome.service import Service as Service_chrome
+from selenium.webdriver.firefox.service import Service as Service_firefox
+from selenium.webdriver import ChromeOptions, FirefoxOptions, EdgeOptions
 from selenium.webdriver.common.by import By
-import pytest
+from selenium.webdriver.common.keys import Keys
+from locators import MainLogo
 
 
-# def test_open_opencart_deffault(browser):
-#     print(browser)
-#
-# def test_open_opencart_deffault_url(browser, api_client):
-#     print(api_client.base_address)
+ser_edge = Service_edge(executable_path="/home/vas/Documents/Python/QAE/otus/05-Search elements/driver/edgedriver_linux64/msedgedriver")
+# options_edge = EdgeOptions()
+# options_edge.add_argument("--headless")
+# options_edge.add_argument("--start-fullscreen")
+driver = webdriver.Edge(service=ser_edge)
 
-def test_open_opencart_edge_url(browser, api_client):
-    browser.get(requests.get(url=f"http://localhost/en-gb/product/iphone"))
-    # print(api_client.base_address)
+try:
+    driver.maximize_window()
+    driver.get("http://localhost/opencart")
+    main_macbook = driver.find_element(By.PARTIAL_LINK_TEXT, "MacBook").click()
+    time.sleep(1)
+    logo = driver.find_element(By.XPATH, MainLogo.logo_xpath).click()
+    time.sleep(1)
+    main_iphone = driver.find_element(By.PARTIAL_LINK_TEXT, "iPhone").click()
+    time.sleep(1)
+except Exception as ex:
+    print(ex)
+finally:
+    driver.close()
+    driver.quit()
 
-# def test_seartch_id_opencart(browser):
-#     elem = browser.find_element(By.ID, MainLogo.logo_id)
-#     print(elem)
-# browser.find_element(By.ID, MainLogo.logo_id)
-
-# print(browser)
-
-
-# def test_open_opencart_edge(browser):
-#     print(browser)
-
-
-# def test_open_opencart_all(parametrize_browser):
-#     print(parametrize_browser)
