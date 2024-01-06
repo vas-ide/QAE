@@ -55,7 +55,7 @@ class TestOpenCart():
     # @pytest.param(browser_param = "edge")
 
     def test_simple_browser(self, browser):
-        browser_param = "edge"
+        # browser_param = "edge"
         # browser_param = "edge"
         driver = browser
         try:
