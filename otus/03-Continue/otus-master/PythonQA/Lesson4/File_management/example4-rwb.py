@@ -6,6 +6,6 @@ f.seek(5)      # Go to the 6th byte in the file
 f.read(1)
 #b'5'
 f.seek(-3, 2)  # Go to the 3rd byte before the end
-#13
+#pillow_ticket
 f.read(1)
 #b'd'
